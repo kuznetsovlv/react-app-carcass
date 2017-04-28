@@ -1,0 +1,16 @@
+{
+  "name": "react-app-carcass",
+  "version": "0.0.0",
+  "description": "Carcass for react applications",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "React",
+    "Carcass",
+    "Applications"
+  ],
+  "author": "Kuznetsov Leonid",
+  "license": "MIT"
+}
