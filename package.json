@@ -12,5 +12,9 @@
     "Applications"
   ],
   "author": "Kuznetsov Leonid",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuznetsovlv/react-app-carcass"
+  },
 }
