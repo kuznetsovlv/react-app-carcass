@@ -4,7 +4,11 @@
   "description": "Carcass for react applications",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "webpack-dev-server --debug --hot --devtool eval-sorce-map --output-pathinfo --watch --color --inline --content-base test --port 8080 --host 0.0.0.0",
+    "build": "webpack -p",
+    "devBuild": "webpack -d",
+    "start": "npm-run-all --parallel devserver devBuild"
   },
   "keywords": [
     "React",
@@ -24,11 +28,18 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.16.0",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
+    "sass-loader": "^6.0.3",
     "unit-kuznetsov": "^1.1.1",
-    "webpack": "^1.14.0"
+    "url-loader": "^0.5.8",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "bemclassnames": "^1.0.4",
