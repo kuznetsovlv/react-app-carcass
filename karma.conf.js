@@ -1,8 +1,20 @@
 // Karma configuration
 // Generated on Wed May 03 2017 00:11:19 GMT+0300 (MSK)
+var webpackConfig = require('./testing.webpack.js');
 
 module.exports = function(config) {
   config.set({
+
+    coverageReporter: {
+        dir: 'coverage/',
+        reporters: [
+            {type: 'html', subdir: 'repot-html'},
+            {type: 'lcov', subdir: 'report-lcov'}
+        ],
+        instrumenterOptions: {
+            istanbul: {noCompact: true}
+        }
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -30,6 +42,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        '__tests__/**/*.js': ['webpack'],
+        '__tests__/**/*.jsx': ['webpack']
     },
 
 
@@ -37,6 +51,14 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress'],
+    // reporters: ['coverage'],
+
+    plugins: [
+        'karma-jasmine',
+        'karma-coverage',
+        'karma-webpack',
+        'karma-phantomjs-launcher'
+    ],
 
 
     // web server port
@@ -67,6 +89,11 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    webpack: webpackConfig,
+    webpackMiddleware: {
+        noInfo: true
+    }
   })
 }

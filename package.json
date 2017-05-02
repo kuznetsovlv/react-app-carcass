@@ -4,12 +4,11 @@
   "description": "Carcass for react applications",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "devserver": "webpack-dev-server --debug --hot --devtool eval-sorce-map --output-pathinfo --watch --color --inline --content-base test --port 8080 --host 0.0.0.0",
     "build": "webpack -p",
     "devBuild": "webpack -d",
-    "karma": "karma start",
-    "start": "npm-run-all --parallel devserver devBuild karma"
+    "start": "npm-run-all --parallel devserver devBuild test"
   },
   "keywords": [
     "React",
@@ -36,8 +35,10 @@
     "jasmine-core": "^2.6.1",
     "karma": "^1.6.0",
     "karma-chrome-launcher": "^2.1.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.3",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-redux": "^5.0.4",
