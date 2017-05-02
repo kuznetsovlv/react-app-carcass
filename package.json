@@ -8,7 +8,8 @@
     "devserver": "webpack-dev-server --debug --hot --devtool eval-sorce-map --output-pathinfo --watch --color --inline --content-base test --port 8080 --host 0.0.0.0",
     "build": "webpack -p",
     "devBuild": "webpack -d",
-    "start": "npm-run-all --parallel devserver devBuild"
+    "karma": "karma start",
+    "start": "npm-run-all --parallel devserver devBuild karma"
   },
   "keywords": [
     "React",
@@ -31,6 +32,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.16.0",
     "css-loader": "^0.28.0",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.1",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.1.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-redux": "^5.0.4",
