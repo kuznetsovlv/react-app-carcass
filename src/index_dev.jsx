@@ -1,1 +1,3 @@
-export default x => x;
+import defaultFunction from './index';
+
+console.log(defaultFunction(3));
