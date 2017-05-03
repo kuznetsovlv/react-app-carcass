@@ -49,6 +49,20 @@ const productPlugins = [
 	})
 ];
 
+const createOutput = () => {
+	const output = {
+		filename: 'index.js',
+		path: path.resolve(__dirname, PRODUCT ? 'dist' : 'dev')
+	};
+
+	if (PRODUCT) {
+		output.library = 'reactAppCarcass';
+		output.libraryTarget = 'umd';
+	}
+
+	return output;
+}
+
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
 
@@ -56,14 +70,9 @@ module.exports = {
 
 	noInfo: true,
 
-	target: 'node',
+	target: PRODUCT ? 'node' : 'web',
 
-	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, PRODUCT ? 'dist' : 'dev'),
-		library: 'reactAppCarcass',
-		libraryTarget: PRODUCT ? 'umd' : 'var'
-	},
+	output: createOutput(),
 
 	watch: DEV,
 
