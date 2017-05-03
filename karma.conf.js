@@ -31,12 +31,19 @@ module.exports = function(config) {
     },
 
     webpack: {
-      module: webpackConfig.module,
-      postLoaders: [{
-        test: /\.(jsx?)$/,
-        include: path.resolve(__dirname, 'src'),
-        loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true'
-      }],
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [{
+          exclude: /node_modules/,
+          test: /\.jsx?$/,
+          loader: 'babel'
+        }],   
+        postLoaders: [{
+          test: /\.(jsx?)$/,
+          include: path.resolve(__dirname, 'src'),
+          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true'
+        }]
+      },
       resolve: webpackConfig.resolve,
     },
 
@@ -45,6 +52,8 @@ module.exports = function(config) {
     },
 
     remapIstanbulReporter: {
+      remapOptions: {},
+      eportOptions: {},
       reports: {
         html: 'coverage/html',
         'text-summary': null,
