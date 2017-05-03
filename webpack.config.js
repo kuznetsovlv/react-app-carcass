@@ -60,7 +60,7 @@ module.exports = {
 
 	output: {
 		filename: 'index.js',
-		path: path.resolve(__dirname, PRODUCT ? 'dist' : 'test'),
+		path: path.resolve(__dirname, PRODUCT ? 'dist' : 'dev'),
 		library: 'reactAppCarcass',
 		libraryTarget: PRODUCT ? 'umd' : 'var'
 	},
