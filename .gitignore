@@ -1,4 +1,4 @@
 node_modules
-test/**/*.js
-test/**/*.js.map
+dev/**/*.js
+dev/**/*.js.map
 coverage
